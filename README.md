@@ -1,1 +1,1 @@
-"# GraphQL Learning Projects" 
+# GraphQL Learning Projects

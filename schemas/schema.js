@@ -1,4 +1,5 @@
 const axios = require('axios');
+const { response } = require('express');
 GraphQL = require('graphql');
 
 const {
@@ -8,12 +9,30 @@ const {
     GraphQLSchema
 } = GraphQL;
 
+const CompanyType = new GraphQLObjectType({
+    name: "Company",
+    fields: {
+        id: {type: GraphQLString},
+        name: {type: GraphQLString},
+        description: {type: GraphQLString}
+    }
+});
+
 const UserType = new GraphQLObjectType({
     name: 'User',
     fields: {
         id: {type: GraphQLString},
         firstname: {type: GraphQLString},
-        age: {type: GraphQLInt}
+        age: {type: GraphQLInt},
+        //field not called companyId, therefore need a resolve
+        //Because companyId is taken from company data type
+        company: {
+            type: CompanyType,
+            resolve(parentVal, args){
+                return axios.get(`http://localhost:3000/companies/${parentVal.companyId}`)
+                    .then(response => response.data);
+            }
+        } //To create an association you define the type in the field, like FK on DB UML
     }
 });
 

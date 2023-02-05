@@ -1,0 +1,34 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "firstname": "Jason",
+      "age": 69,
+      "companyId": "3"
+    },
+    {
+      "id": "420",
+      "firstname": "Mary-Jane",
+      "age": 50,
+      "companyId": "1"
+    },
+    {
+      "id": "1333",
+      "firstname": "Joel",
+      "age": "54",
+      "companyId": "1"
+    }
+  ],
+  "companies": [
+    {
+      "id": "1",
+      "name": "EY",
+      "description": "Consultancy"
+    },
+    {
+      "id": "3",
+      "name": "Royal Nut Company",
+      "description": "Nuts & misc health stuff"
+    }
+  ]
+}
